@@ -1,0 +1,127 @@
+body{
+            gap : 20px;
+            display : flex;
+            height: 100vh;
+            font-family: Georgia;
+            text-align: top;
+            padding: 20px;
+            justify-content: center ; 
+            align-items: center;
+            background: linear-gradient(0deg, #000000, #55009b, #8d00eb, #55009b, #000000);
+            overflow: hidden;
+        }
+        button{ 
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(0deg, #2c2c2c, #2c2c2c, #2c2c2c);
+            color: white;
+            padding: 0px; 
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            justify-content: center; 
+            align-items: center;
+            transition: background 0.3s ease, transform 0.2s linear;  
+        }
+        button:active{
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(0deg, #757575, #757575, #757575);
+            color: white;
+            padding: 0px; 
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            justify-content: center ; 
+            align-items: center;
+            transform: scale(0.9);
+        }
+        .a{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+        .b{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+        .c{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        } 
+        .d{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }       
+        .celular{
+            width: 400px;
+            height: 800px;
+            background-color: #000000;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 50px 50px 10px rgba(0,0,0,0.5);
+            position: relative;
+            justify-content: center ; 
+            align-items: center;
+            z-index: 5;
+        }
+        .tela{
+            width: 100%;
+            height: 95%;
+            background-color: #fff;
+            border-radius: 20px;
+            margin-top: 10px;
+            z-index: 6;
+            box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.5);     
+        }
+        .espaco{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60%;
+        }
+        #btn19{
+            background: linear-gradient(0deg, #00ff00, #00ff00, #00ff00);
+            transition: background 0.3s ease, transform 0.2s linear;
+        }
+        #btn19:active{
+            background: linear-gradient(0deg, #00d300, #00d300, #00d300);
+            transform: scale(0.9);
+        }
+        #btn{
+            background: linear-gradient(0deg, #ff0000, #ff0000, #ff0000);
+        }
+        #btn:active{
+            background: linear-gradient(0deg, #d30000, #d30000, #d30000);
+        }
+        .visor{
+            width: 95%;
+            height: 30%;
+            background-color: #000000;
+            border-radius: 10px;
+            margin: 20px auto;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+            z-index: 10;
+        }
+        .bot{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #00ff00;
+            gap: 10px;
+            width: 20px;
+            height: 20px;
+            z-index: 6;
+        }
+        #visor{
+            text-align: right;
+        }
