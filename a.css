@@ -21,7 +21,7 @@ body{
             cursor: pointer;
             justify-content: center; 
             align-items: center;
-            transition: background 0.3s ease, transform 0.2s linear;  
+            transition: background 0.3s ease, transform 0.2s linear; 
         }
         button:active{
             width: 70px;
@@ -73,6 +73,7 @@ body{
             z-index: 5;
         }
         .tela{
+            position: relative;
             width: 100%;
             height: 95%;
             background-color: #fff;
@@ -116,12 +117,52 @@ body{
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: #00ff00;
+            background-color: transparent;
             gap: 10px;
             width: 20px;
             height: 20px;
             z-index: 6;
+            margin-left: 46.5%;
+            border-radius: 50%;
+            border: 5px solid #000000;
         }
+        .bot1{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 20px;
+            bottom: 20px;
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            border-left: 28px solid #000000;
+            right: 60px;
+            bottom: 10px;
+            border-radius: 5px;
+        }
+        .bot1f{
+            position: absolute;
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-top: 9px solid transparent;
+            border-bottom: 9px solid transparent;
+            border-left: 18px solid #ffffff;
+            margin-left: -30px;
+        }
+        .bot2{  
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            z-index: 6;
+            background-color: transparent;
+            border: 5px solid #000000;
+            left: 60px;
+            border-radius: 5px;
+        }        
         #visor{
             text-align: right;
         }
