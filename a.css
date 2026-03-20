@@ -105,7 +105,7 @@ body{
         .visor{
             width: 95%;
             height: 30%;
-            background-color: #000000;
+            background-color: #ffffff;
             border-radius: 10px;
             margin: 20px auto;
             justify-content: flex-end;
@@ -125,6 +125,7 @@ body{
             margin-left: 46.5%;
             border-radius: 50%;
             border: 5px solid #000000;
+            margin-top: 20px;            
         }
         .bot1{
             position: absolute;
@@ -142,6 +143,7 @@ body{
             right: 60px;
             bottom: 10px;
             border-radius: 5px;
+            margin-bottom: 6px;
         }
         .bot1f{
             position: absolute;
@@ -162,7 +164,13 @@ body{
             border: 5px solid #000000;
             left: 60px;
             border-radius: 5px;
+            margin-top: 20px
         }        
         #visor{
             text-align: right;
+            font-size: 100px;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: flex-end;     
+            height: 200px;
         }
