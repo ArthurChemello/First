@@ -21,7 +21,7 @@ body{
             cursor: pointer;
             justify-content: center; 
             align-items: center;
-            transition: background 0.3s ease, transform 0.2s linear; 
+            transition: background 0.3s ease, transform 0.2s linear;
         }
         button:active{
             width: 70px;
@@ -112,6 +112,7 @@ body{
             align-items: center;
             padding: 10px;
             z-index: 10;
+            word-wrap: break-word; 
         }
         .bot{
             display: flex;
@@ -124,7 +125,7 @@ body{
             z-index: 6;
             margin-left: 46.5%;
             border-radius: 50%;
-            border: 5px solid #000000;
+            border: 4px solid #000000;
             margin-top: 20px;            
         }
         .bot1{
@@ -161,7 +162,7 @@ body{
             height: 20px;
             z-index: 6;
             background-color: transparent;
-            border: 5px solid #000000;
+            border: 4px solid #000000;
             left: 60px;
             border-radius: 5px;
             margin-top: 20px
@@ -173,4 +174,19 @@ body{
             justify-content: flex-end; 
             align-items: flex-end;     
             height: 200px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: 400; 
+            font-size: 95px;
+            
+        }
+        #ap{
+            word-wrap: break-word;
+            resize: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            background-color: tomato;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: 400; 
+            font-size: 95px;
         }

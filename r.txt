@@ -1,0 +1,83 @@
+
+//apagr um por um
+const apagar = document.getElementById('btn5');
+
+apagar.addEventListener('click', function() {
+    const visor = document.getElementById('ap');
+    visor.value = visor.value.slice(0, -1);
+});
+
+document.addEventListener('keydown', (event1) => {
+    if (event1.key === 'Backspace') {
+        const visor = document.getElementById('ap');
+        visor.value = visor.value.slice(0, -1);
+    }
+});
+//apagar tudo
+const a = document.getElementById('btn');
+a.addEventListener('click', function() {
+    const visor = document.getElementById('ap');
+    visor.value = "";
+});
+
+document.addEventListener('keydown', (event2) => {
+    if (event2.key === 'Delete') {
+        const visor = document.getElementById('ap');
+        visor.value = "";
+    }
+});
+
+//0
+
+const b0 = document.getElementById('btn9');
+
+b0.addEventListener('click', function() {
+    const visor = document.getElementById('ap');
+    visor.value += "0";
+});
+
+document.addEventListener('keydown', (event0) => {
+    if (event0.key === '0') {
+        const visor = document.getElementById('ap');
+        visor.value += "0";
+    }
+});
+
+//1
+
+const b3 = document.getElementById('btn3');
+
+b3.addEventListener('click', function() {
+    const visor = document.getElementById('ap');
+    visor.value += "1";
+});
+
+document.addEventListener('keydown', (event3) => {
+    if (event3.key === '1') {
+        const visor = document.getElementById('ap');
+        visor.value += "1";
+    }
+});
+
+//2
+
+const b8 = document.getElementById('btn8');
+
+b8.addEventListener('click', function() {
+    const visor = document.getElementById('ap');
+    visor.value += "2";
+});
+
+document.addEventListener('keydown', (event8) => {
+    if (event8.key === '2') {
+        const visor = document.getElementById('ap');
+        visor.value += "2";
+    }
+});
+
+
+
+
+
+
+
