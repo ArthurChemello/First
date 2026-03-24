@@ -37,3 +37,35 @@ botoesApagar.forEach(botao => {
         }   
     });
 });
+
+function calcular() {
+    const expressao = visor.value;
+    const t = expressao.match(/(\d+|\+|-|\*|\/)/g);
+
+    if(!t) return;
+
+    let prior = [];
+    for(let i = 0; i < t.length; i++) {
+        let item = t[i];
+        if(item == "*" || item == "/") {
+            let op = item;
+            let pxn = perseFloat(t[++i]);
+            let nant = prior.pop();
+
+            if (op === '*') pilhaPrioridade.push(numeroAnterior * proximoNumero);
+            if (op === '/') pilhaPrioridade.push(numeroAnterior / proximoNumero);
+        } else {
+            prior.push(isNaN(t))? t : parseFloat(t);
+        }
+    }
+    let rF = prior[0];
+    for(let i = 0; i <= prior.length; i+=2{
+        let ope = prior[i];
+        let prox = prior[i+1];
+        if (ope === '+') resultadoFinal += proximoNumero;
+        if (ope === '-') resultadoFinal -= proximoNumero;
+
+        visor.value = resultadoFinal;
+    }
+
+}
