@@ -2,7 +2,7 @@ body{
             gap : 20px;
             display : flex;
             height: 100vh;
-            font-family: Georgia;
+            font-family: Alfa Slab One;
             text-align: top;
             padding: 20px;
             justify-content: center ; 
@@ -174,19 +174,20 @@ body{
             justify-content: flex-end; 
             align-items: flex-end;     
             height: 200px;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Alfa Slab One';
             font-weight: 400; 
             font-size: 95px;
             
         }
         #ap{
             word-wrap: break-word;
+            text-align: right;
             resize: none;
             border: none;
             width: 100%;
             height: 100%;
-            background-color: tomato;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            font-weight: 400; 
-            font-size: 95px;
+            background-color: #ffffff;
+            font-family: 'Alfa Slab One';
+            font-weight: 400px; 
+            font-size: 60px;
         }

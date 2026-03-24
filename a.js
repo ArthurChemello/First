@@ -26,3 +26,14 @@ document.addEventListener('keydown', (event) => {
         limparTudo();
     }
 });
+
+const botoesApagar = document.querySelectorAll('.espaco button#btn, .espaco button#btn5');
+botoesApagar.forEach(botao => {
+    botao.addEventListener('click', () => {
+        if (botao.id === 'btn5') {
+            apagarUm();
+        }   else if (botao.id === 'btn') {
+            limparTudo();
+        }   
+    });
+});
