@@ -179,8 +179,7 @@ body{
             font-size: 95px;
             
         }
-        #ap{
-            word-wrap: break-word;
+        #ap{            
             text-align: right;
             resize: none;
             border: none;
@@ -190,4 +189,7 @@ body{
             font-family: 'Alfa Slab One';
             font-weight: 400px; 
             font-size: 60px;
+            overflow-x: auto;
+            border: none;
+            outline: none;
         }
