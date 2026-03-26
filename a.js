@@ -42,7 +42,7 @@ function inserirNoVisor(valor) {
 }
 
 function apagarUm() {
-    visor.value = visor.value.slice(0, -1);
+    visor.value = visor.value.slice(0,-1);
 }
 
 function limparTudo() {
@@ -72,19 +72,20 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-function trocarSinal(){
-    let ex = visor.value;
-    let p = ex.split(/([+\-*/])/);
-    let u = p[p.length-1];
-    if(!u){
-        return;
-    }
-    if(u.startsWith("-")){
-        p[p.length-1] = u.substring(1);
-    }else{
-        p[p.length-1] = "-" + u;
-    }
-    visor.value = p.join("");
+function trocarSinal() {
+  let ex = visor.value;
+  if (!ex) return;
+  let match = ex.match(/(-?\d+\.?\d*)$/);
+  if (!match) return;
+
+  let numero = match[1];
+  let resto = ex.slice(0, ex.length - numero.length);
+
+  if (numero.startsWith("-")) {
+    visor.value = resto + numero.slice(1); 
+  } else {
+    visor.value = resto + "-" + numero;
+  }
 }
 
 function porcent(){
@@ -141,7 +142,7 @@ function calcular() {
                 return;
             }
             if ( proximo === 0 && (op === "/" || op === "÷")) {
-                visor.value = "Erro";
+                visor.value = "Doente";
                 return;
             }
             if (op === "*") prior.push(anterior * proximo);
@@ -163,4 +164,3 @@ function calcular() {
 
     visor.value = resultado;
 }
-
