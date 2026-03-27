@@ -14,13 +14,17 @@ botoesOperadores.forEach(botao => {
 
 function inserirNoVisor(valor) {
     const ultimo = visor.value.slice(-1);
-    const op = ["+", "-", "*", "/"];
+    const op = ["+", "-", "*", "/", "÷"];
     if(visor.value === "" && valor !== "-" && op.includes(valor)){
         return;
     }
     if(op.includes(ultimo) && op.includes(valor)){
-        return;
-    }
+        if(valor === "-" && ultimo !== "-") {
+
+        } else {
+            return;
+        }
+    }    
     if(valor === "="){
         return;
     }
@@ -49,26 +53,24 @@ function limparTudo() {
     visor.value = "";
 }
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {    
     if (/[0-9]/.test(event.key)) {
         event.preventDefault();
         inserirNoVisor(event.key);
-
     } else if (["+", "-", "*", "/"].includes(event.key)) {
         event.preventDefault();
         inserirNoVisor(event.key);
-
     } else if (event.key === 'Enter') {
         event.preventDefault();
         calcular();
-
     } else if (event.key === 'Backspace') {
         event.preventDefault();
         apagarUm();
-
     } else if (event.key === 'Delete') {
         event.preventDefault();
         limparTudo();
+    } else {
+        event.preventDefault(); 
     }
 });
 
@@ -90,12 +92,23 @@ function trocarSinal() {
 
 function porcent(){
     let ex = visor.value;
+    
+    if(ex.includes('e') || ex === ""){
+        return;
+    }
     let p = ex.split(/([+\-*/])/);
-    let u = p[p.length-1];
+    let u = p[p.length-1];    
     if(!u || isNaN(u)){
         return;
     }
-    p[p.length-1] = parseFloat(u)/100;
+    if(parseFloat(u) === 0){
+        return;
+    }
+    let resultado = parseFloat(u) / 100;
+
+    resultado = parseFloat(resultado.toPrecision(10));
+
+    p[p.length-1] = resultado;
     visor.value = p.join("");
 }
 
@@ -124,11 +137,22 @@ botaoDec.addEventListener('click', () => inserirNoVisor("."));
 
 function calcular() {
     let expressao = visor.value;
-    expressao = expressao.replace(/÷/g, "/");
+     expressao = expressao.replace(/÷/g, "/");
+
+    if (/[+\-*/]{2,}/.test(expressao) && !/[+*/]-/.test(expressao)) {
+        visor.value = "Erro";
+        return;
+    }
+
+    if (/[+\-*/]$/.test(expressao)) {
+        visor.value = "Erro";
+        return;
+    }
+
     if (expressao[0] === "-") {
         expressao = "0" + expressao;
     }
-    const t = expressao.match(/(\d+\.?\d*|\+|-|\*|\/)/g);
+    const t = expressao.match(/(-?\d+\.?\d*|[+\-*/])/g);
     if (!t) return;
     let prior = [];
     for (let i = 0; i < t.length; i++) {
@@ -142,7 +166,7 @@ function calcular() {
                 return;
             }
             if ( proximo === 0 && (op === "/" || op === "÷")) {
-                visor.value = "Doente";
+                visor.value = "Como passou no colégio?";
                 return;
             }
             if (op === "*") prior.push(anterior * proximo);
@@ -164,3 +188,85 @@ function calcular() {
 
     visor.value = resultado;
 }
+
+const botaoDeslig = document.querySelector('.deslig');
+botaoDeslig.addEventListener('click', () => {
+    const botoes = document.querySelectorAll('button:not(.deslig)');
+    const cena = document.querySelector('.tela');
+    const cenaRect = cena.getBoundingClientRect();
+
+    botoes.forEach(btn => {
+        const rect = btn.getBoundingClientRect();
+        const obj = {
+            el: btn,
+            x: rect.left - cenaRect.left,
+            y: rect.top - cenaRect.top,
+            w: rect.width,
+            h: rect.height,
+            vy: (Math.random() - 0.5) * 4,
+            vx: (Math.random() - 0.5) * 4,
+            settled: false
+        };
+
+        btn.style.position = 'absolute';
+        btn.style.left = obj.x + 'px';
+        btn.style.top = obj.y + 'px';
+        btn.style.margin = '0';
+        btn.style.zIndex = '999';
+        cena.appendChild(btn);
+
+        function animar() {
+            if (obj.settled) return;
+
+            obj.vy += 0.6;
+            obj.vx *= 0.99;
+            obj.x += obj.vx;
+            obj.y += obj.vy;
+
+            const H = cena.offsetHeight;
+            const W = cena.offsetWidth;
+
+            if (obj.x < 0) { obj.x = 0; obj.vx = Math.abs(obj.vx) * 0.5; }
+            if (obj.x + obj.w > W) { obj.x = W - obj.w; obj.vx = -Math.abs(obj.vx) * 0.5; }
+            if (obj.y + obj.h >= H) {
+                obj.y = H - obj.h;
+                obj.vy *= -0.35;
+                obj.vx *= 0.85;
+                if (Math.abs(obj.vy) < 0.5 && Math.abs(obj.vx) < 0.5) {
+                    obj.settled = true;
+                }
+            }
+
+            btn.style.left = obj.x + 'px';
+            btn.style.top = obj.y + 'px';
+
+            if (!obj.settled) requestAnimationFrame(animar);
+        }
+
+        requestAnimationFrame(animar);
+    });
+});
+
+let girando = false;
+let anguloAtual = 0;
+let animacaoGiro;
+
+document.getElementById('algo').addEventListener('click', () => {
+    if (girando) {
+        girando = false;
+        cancelAnimationFrame(animacaoGiro);
+        document.querySelector('.celular').style.transform = 'rotate(0deg)';
+        return;
+    }
+
+    girando = true;
+
+    function girar() {
+        if (!girando) return;
+        anguloAtual += 0.3;
+        document.querySelector('.celular').style.transform = `rotate(${anguloAtual}deg)`;
+        animacaoGiro = requestAnimationFrame(girar);
+    }
+
+    girar();
+});
