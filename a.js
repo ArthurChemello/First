@@ -152,7 +152,7 @@ function calcular() {
     if (expressao[0] === "-") {
         expressao = "0" + expressao;
     }
-    const t = expressao.match(/(-?\d+\.?\d*|[+\-*/])/g);
+    const t = expressao.match(/((?<=[+*/])-\d+\.?\d*|\d+\.?\d*|[+\-*/])/g);
     if (!t) return;
     let prior = [];
     for (let i = 0; i < t.length; i++) {
@@ -191,7 +191,7 @@ function calcular() {
 
 const botaoDeslig = document.querySelector('.deslig');
 botaoDeslig.addEventListener('click', () => {
-    const botoes = document.querySelectorAll('button:not(.deslig)');
+    const botoes = document.querySelectorAll('button:not(.deslig):not(#algo)');
     const cena = document.querySelector('.tela');
     const cenaRect = cena.getBoundingClientRect();
 
